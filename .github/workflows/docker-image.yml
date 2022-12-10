@@ -15,5 +15,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Set env
+      run: echo "DOCKER_LATEST_TAG=$(date +%s)" >> $GITHUB_ENV
+      
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag kevinaird/simple-stats:$(date +%s)
+      run: docker build . --file Dockerfile --tag kevinaird/simple-stats:${DOCKER_LATEST_TAG}
+      
+    - name: Push to docker hub
+      run: docker push kevinaird/simple-stats:${DOCKER_LATEST_TAG}
