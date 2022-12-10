@@ -29,5 +29,5 @@ jobs:
       
     - name: Push to docker hub
       run: |
-        docker login -u ${{env.DOCKER_PUSH_ACCOUNT}} -p ${{env.DOCKER_PUSH_TOKEN}} registry.hub.docker.com \
+        docker login registry.hub.docker.com -u ${{env.DOCKER_PUSH_ACCOUNT}} -p ${{env.DOCKER_PUSH_TOKEN}} \
         docker push ${{env.DOCKER_PUSH_ACCOUNT}}/simple-stats:${DOCKER_LATEST_TAG}
