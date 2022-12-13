@@ -31,7 +31,9 @@ jobs:
       run: echo "DOCKER_LATEST_TAG=$(date +%s)" >> $GITHUB_ENV
       
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{env.DOCKER_PUSH_ACCOUNT}}/simple-stats:${DOCKER_LATEST_TAG}
+      run: docker build . --file Dockerfile --tag ${{env.DOCKER_PUSH_ACCOUNT}}/simple-stats:${DOCKER_LATEST_TAG} --tag ${{env.DOCKER_PUSH_ACCOUNT}}/simple-stats:latest
       
     - name: Push to docker hub
-      run: docker push ${{env.DOCKER_PUSH_ACCOUNT}}/simple-stats:${DOCKER_LATEST_TAG}
+      run: |
+        docker push ${{env.DOCKER_PUSH_ACCOUNT}}/simple-stats:${DOCKER_LATEST_TAG}
+        docker push ${{env.DOCKER_PUSH_ACCOUNT}}/simple-stats:latest

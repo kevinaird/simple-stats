@@ -5,7 +5,8 @@ A simple framework built in nodejs for polling stats at an interval and dumping 
 - Configurable via yaml file
 - Designed for running in a docker container
 - Can retrieve container stats and container top data
-- Can retrieve kafka topic count
+- Can retrieve metrics from any prometheus-style exporter
+- Can retrieve kafka topic offsets
 - Can retrieve influx record count
 - Exports the data to a csv
 
@@ -81,12 +82,12 @@ OR run via a docker compose file
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./stats.yml:/app/stats.yml
-    command: -v start /app/stats.yml
+    command: start /app/stats.yml
 ````
 
 ## Example Output
 
-````
+````c
 1670693536191,kafka-container-stats_pids_stats_current,82
 1670693536191,kafka-container-stats_num_procs,0
 1670693536191,kafka-container-stats_cpu_stats_cpu_usage_total_usage,22746987793000

@@ -1,7 +1,9 @@
 const statTypes = {
     container: true,
     influx: true,
-    kafka: true
+    kafka: true,
+    //jmx: true,
+    exporter: true
 };
 
 const start = async ( { log, ...config } ) => {

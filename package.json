@@ -12,9 +12,12 @@
     "simple-stats": "./bin/index.js"
   },
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "dockerode": "^3.3.4",
+    "exposition": "^1.2.0",
     "influx": "^5.9.3",
     "kafkajs": "^2.2.3",
+    "node-fetch": "^2.6.1",
     "yaml": "^2.1.3",
     "yargs": "^17.6.2"
   }
