@@ -1,3 +1,5 @@
+![docker image build](https://github.com/kevinaird/simple-stats/actions/workflows/docker-image.yml/badge.svg)
+
 # Simple Stats Logger
 
 A simple framework built in nodejs for polling stats at an interval and dumping them to a csv file.
@@ -40,6 +42,11 @@ metrics:
     database: loadrunner    # the name of the database we want to query
     query: SELECT count(*) FROM transactions    # the query we will run to get the record count
     count: count_duration   # the name of the result field that will contain the count
+
+  # pull stats from a prometheus exporter
+  cadvisor:             # name each metric however your like
+    type: exporter      # this lets simple stats know we want to pull stats from a prometheus exporter
+    endpoint: http://cadvisor:8080/metrics  # the url of the metrics endpoint we want to pull from
 
 # Write to a csv file
 output: /stats.csv      # where to dump the metrics to. Required

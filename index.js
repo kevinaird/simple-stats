@@ -3,7 +3,8 @@ const statTypes = {
     influx: true,
     kafka: true,
     //jmx: true,
-    exporter: true
+    exporter: true,
+    embed: true,
 };
 
 const start = async ( { log, ...config } ) => {
